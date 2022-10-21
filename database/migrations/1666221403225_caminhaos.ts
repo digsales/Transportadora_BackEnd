@@ -14,7 +14,7 @@ export default class extends BaseSchema {
         .notNullable();
       table.string("modelo").notNullable();
       table.string("marca").notNullable();
-      table.integer("qtd_eixos");
+      table.string("tipo_caminhao").notNullable();
       table.integer("potencia");
 
       /**

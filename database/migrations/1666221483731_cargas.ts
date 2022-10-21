@@ -18,7 +18,14 @@ export default class extends BaseSchema {
         .references("id")
         .inTable("reboques")
         .notNullable();
-      table.string("");
+      table
+        .integer("cliente_id")
+        .unsigned()
+        .references("id")
+        .inTable("clientes")
+        .notNullable();
+      table.integer("peso").notNullable();
+      table.string("tipo_carga").notNullable();
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
