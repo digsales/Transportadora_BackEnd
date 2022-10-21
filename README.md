@@ -3,6 +3,14 @@
 ### Iniciar um projeto.
 
     npm init adonis-ts-app@latest [nome]
+    
+### Instalando o `lucid` para o baco de dados.
+
+    npm i @adonisjs/lucid
+
+### Configurando o `lucid`.
+
+    node ace configure @adonisjs/lucid
 
 ### Start o servidor de desenvolvimento.
 
@@ -74,14 +82,6 @@ export default class AlunosController {
 }
 
 ```
-
-### Instalando o `lucid` para o baco de dados.
-
-    npm i @adonisjs/lucid
-
-### Configurando o `lucid`.
-
-    node ace configure @adonisjs/lucid
 
 ### Criar Model e Migration
 
