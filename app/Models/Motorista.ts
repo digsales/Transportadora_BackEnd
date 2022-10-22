@@ -9,7 +9,10 @@ export default class Motorista extends BaseModel {
   public nome: string;
 
   @column()
-  public dataDeNascimento: Date;
+  public cpf: string;
+
+  @column()
+  public dataNascimento: Date;
 
   @column()
   public uf: string;
@@ -19,6 +22,12 @@ export default class Motorista extends BaseModel {
 
   @column()
   public logradouro: string;
+
+  @column()
+  public complemento: string;
+
+  @column()
+  public cep: string;
 
   @column()
   public telefone: string;

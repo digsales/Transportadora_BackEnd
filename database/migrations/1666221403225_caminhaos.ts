@@ -13,7 +13,10 @@ export default class extends BaseSchema {
         .inTable("motoristas")
         .notNullable();
       table.string("modelo").notNullable();
+      table.string("cabine");
       table.string("marca").notNullable();
+      table.string("placa").notNullable();
+      table.string("cor");
       table.string("tipo_caminhao").notNullable();
       table.integer("potencia");
 

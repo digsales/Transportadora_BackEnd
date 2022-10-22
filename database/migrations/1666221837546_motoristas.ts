@@ -6,12 +6,14 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments("id");
-      table.string("Nome").notNullable();
-      table.string("cpf", 11).notNullable();
-      table.date("data_de_nascimento");
+      table.string("nome").notNullable();
+      table.string("cpf").notNullable();
+      table.date("data_nascimento");
       table.string("uf", 2);
       table.string("cidade");
       table.string("logradouro");
+      table.string("complemento");
+      table.string("cep");
       table.string("telefone").notNullable();
       table.string("email").notNullable();
       /**
