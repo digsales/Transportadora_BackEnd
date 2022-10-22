@@ -21,6 +21,12 @@ export default class Cliente extends BaseModel {
   public logradouro: string;
 
   @column()
+  public complemento: string;
+
+  @column()
+  public cep: string;
+
+  @column()
   public telefone: string;
 
   @column()

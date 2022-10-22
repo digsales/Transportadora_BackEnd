@@ -12,7 +12,16 @@ export default class Caminhao extends BaseModel {
   public modelo: string;
 
   @column()
+  public cabine: string;
+
+  @column()
   public marca: string;
+
+  @column()
+  public placa: string;
+
+  @column()
+  public cor: string;
 
   @column()
   public tipoCaminhao: string;
