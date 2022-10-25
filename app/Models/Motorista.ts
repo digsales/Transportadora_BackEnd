@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
-import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
+import { BaseModel, column, HasMany, hasMany } from "@ioc:Adonis/Lucid/Orm";
+import Caminhao from "./Caminhao";
 
 export default class Motorista extends BaseModel {
   @column({ isPrimary: true })
@@ -40,4 +41,7 @@ export default class Motorista extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime;
+
+  @hasMany(() => Caminhao)
+  public caminhao: HasMany<typeof Caminhao>;
 }
