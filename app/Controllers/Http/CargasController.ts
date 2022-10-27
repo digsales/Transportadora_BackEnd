@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Carga from "App/Models/Carga";
+import CargaValidator from "App/Validators/CargaValidator";
 
 export default class CargasController {
   index() {
@@ -8,13 +9,7 @@ export default class CargasController {
   }
 
   store({ request }) {
-    const dados = request.only([
-      "caminhaoId",
-      "reboqueId",
-      "clienteId",
-      "peso",
-      "tipoCarga",
-    ]);
+    const dados = request.validate(CargaValidator);
     return Carga.create(dados);
   }
 
