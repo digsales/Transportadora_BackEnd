@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Reboque from "App/Models/Reboque";
+import ReboqueValidator from "App/Validators/ReboqueValidator";
 
 export default class ReboquesController {
   index() {
@@ -8,7 +9,7 @@ export default class ReboquesController {
   }
 
   store({ request }) {
-    const dados = request.only(["tipoReboque"]);
+    const dados = request.validate(ReboqueValidator);
     return Reboque.create(dados);
   }
 
