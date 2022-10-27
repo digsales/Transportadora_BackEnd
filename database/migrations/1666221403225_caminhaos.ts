@@ -12,12 +12,12 @@ export default class extends BaseSchema {
         .references("id")
         .inTable("motoristas")
         .notNullable();
-      table.string("modelo").notNullable();
-      table.string("cabine");
-      table.string("marca").notNullable();
-      table.string("placa").notNullable();
-      table.string("cor");
-      table.string("tipo_caminhao").notNullable();
+      table.string("modelo", 100).notNullable();
+      table.string("cabine", 100);
+      table.string("marca", 100).notNullable();
+      table.string("placa", 7).notNullable();
+      table.string("cor", 100);
+      table.string("tipo_caminhao", 100).notNullable();
       table.integer("potencia");
 
       /**
