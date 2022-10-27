@@ -24,8 +24,8 @@ export default class extends BaseSchema {
         .references("id")
         .inTable("clientes")
         .notNullable();
-      table.integer("peso").notNullable();
-      table.string("tipo_carga").notNullable();
+      table.decimal("peso").notNullable();
+      table.string("tipo_carga", 100).notNullable();
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
