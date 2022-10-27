@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Motorista from "App/Models/Motorista";
+import MotoristaValidator from "App/Validators/MotoristaValidator";
 
 export default class MotoristasController {
   index() {
@@ -8,18 +9,7 @@ export default class MotoristasController {
   }
 
   store({ request }) {
-    const dados = request.only([
-      "nome",
-      "cpf",
-      "dataNascimento",
-      "uf",
-      "cidade",
-      "logradouro",
-      "complemento",
-      "cep",
-      "telefone",
-      "email",
-    ]);
+    const dados = request.validate(MotoristaValidator);
     return Motorista.create(dados);
   }
 
