@@ -8,6 +8,7 @@ export default class MotoristaValidator {
     nome: schema.string([rules.maxLength(100)]),
     cpf: schema.string([
       rules.range(11, 14),
+      rules.regex(/^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/),
       rules.unique({ table: "motoristas", column: "cpf" }),
     ]),
     dataNascimento: schema.date.optional(),
@@ -22,6 +23,7 @@ export default class MotoristaValidator {
     cep: schema.string.optional([rules.range(8, 9)]),
     telefone: schema.string([
       rules.range(11, 15),
+      rules.mobile({ locale: ["pt-BR"] }),
       rules.unique({ table: "motoristas", column: "telefone" }),
     ]),
     email: schema.string([
