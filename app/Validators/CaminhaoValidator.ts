@@ -10,7 +10,8 @@ export default class CaminhaoValidator {
     ]),
     modelo: schema.string([rules.maxLength(100)]),
     cabine: schema.string.optional([rules.maxLength(100)]),
-    marca: schema.string([
+    marca: schema.string([rules.maxLength(100)]),
+    placa: schema.string([
       rules.minLength(7),
       rules.maxLength(7),
       rules.alphaNum(),
