@@ -4,31 +4,31 @@ import Reboque from "App/Models/Reboque";
 import ReboqueValidator from "App/Validators/ReboqueValidator";
 
 export default class ReboquesController {
-  index() {
-    return Reboque.query().preload("carga");
+  async index() {
+    return await Reboque.query().preload("carga");
   }
 
-  store({ request }) {
-    const dados = request.validate(ReboqueValidator);
-    return Reboque.create(dados);
+  async store({ request }) {
+    const dados = await request.validate(ReboqueValidator);
+    return await Reboque.create(dados);
   }
 
-  show({ request }) {
-    const id = request.param("id");
-    return Reboque.findOrFail(id);
+  async show({ request }) {
+    const id = await request.param("id");
+    return await Reboque.findOrFail(id);
   }
 
   async destroy({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const reboque = await Reboque.findOrFail(id);
     return reboque.delete();
   }
 
   async update({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const reboque = await Reboque.findOrFail(id);
 
-    const dados = request.only(["tipoReboque"]);
+    const dados = await request.validate(ReboqueValidator);
 
     reboque.merge(dados).save();
 

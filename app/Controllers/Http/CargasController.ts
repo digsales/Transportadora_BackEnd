@@ -4,37 +4,31 @@ import Carga from "App/Models/Carga";
 import CargaValidator from "App/Validators/CargaValidator";
 
 export default class CargasController {
-  index() {
-    return Carga.query();
+  async index() {
+    return await Carga.query();
   }
 
-  store({ request }) {
-    const dados = request.validate(CargaValidator);
-    return Carga.create(dados);
+  async store({ request }) {
+    const dados = await request.validate(CargaValidator);
+    return await Carga.create(dados);
   }
 
-  show({ request }) {
-    const id = request.param("id");
-    return Carga.findOrFail(id);
+  async show({ request }) {
+    const id = await request.param("id");
+    return await Carga.findOrFail(id);
   }
 
   async destroy({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const carga = await Carga.findOrFail(id);
     return carga.delete();
   }
 
   async update({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const carga = await Carga.findOrFail(id);
 
-    const dados = request.only([
-      "caminhaoId",
-      "reboqueId",
-      "clienteId",
-      "peso",
-      "tipoCarga",
-    ]);
+    const dados = await request.validate(CargaValidator);
 
     carga.merge(dados).save();
 

@@ -4,40 +4,31 @@ import Caminhao from "App/Models/Caminhao";
 import CaminhaoValidator from "App/Validators/CaminhaoValidator";
 
 export default class CaminhaosController {
-  index() {
-    return Caminhao.query().preload("carga");
+  async index() {
+    return await Caminhao.query().preload("carga");
   }
 
-  store({ request }) {
-    const dados = request.validate(CaminhaoValidator);
-    return Caminhao.create(dados);
+  async store({ request }) {
+    const dados = await request.validate(CaminhaoValidator);
+    return await Caminhao.create(dados);
   }
 
-  show({ request }) {
-    const id = request.param("id");
-    return Caminhao.findOrFail(id);
+  async show({ request }) {
+    const id = await request.param("id");
+    return await Caminhao.findOrFail(id);
   }
 
   async destroy({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const caminhao = await Caminhao.findOrFail(id);
     return caminhao.delete();
   }
 
   async update({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const caminhao = await Caminhao.findOrFail(id);
 
-    const dados = request.only([
-      "motoristaId",
-      "modelo",
-      "cabine",
-      "marca",
-      "placa",
-      "cor",
-      "tipoCaminhao",
-      "potencia",
-    ]);
+    const dados = await request.validate(CaminhaoValidator);
 
     caminhao.merge(dados).save();
 
