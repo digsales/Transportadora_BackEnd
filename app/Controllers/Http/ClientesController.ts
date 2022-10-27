@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Cliente from "App/Models/Cliente";
+import ClienteValidator from "App/Validators/ClienteValidator";
 
 export default class ClientesController {
   index() {
@@ -8,17 +9,7 @@ export default class ClientesController {
   }
 
   store({ request }) {
-    const dados = request.only([
-      "nome",
-      "cnpj",
-      "uf",
-      "cidade",
-      "logradouro",
-      "complemento",
-      "cep",
-      "telefone",
-      "email",
-    ]);
+    const dados = request.validate(ClienteValidator);
     return Cliente.create(dados);
   }
 
