@@ -24,6 +24,7 @@ export default class ClienteValidator {
     cep: schema.string.optional([rules.range(8, 9)]),
     telefone: schema.string.optional([
       rules.maxLength(15),
+      rules.mobile({ locale: ["pt-BR"] }),
       rules.unique({ table: "clientes", column: "telefone" }),
     ]),
     email: schema.string.optional([
