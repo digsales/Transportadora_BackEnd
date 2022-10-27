@@ -4,43 +4,33 @@ import Cliente from "App/Models/Cliente";
 import ClienteValidator from "App/Validators/ClienteValidator";
 
 export default class ClientesController {
-  index() {
-    return Cliente.query().preload("carga");
+  async index() {
+    return await Cliente.query().preload("carga");
   }
 
-  store({ request }) {
-    const dados = request.validate(ClienteValidator);
-    return Cliente.create(dados);
+  async store({ request }) {
+    const dados = await request.validate(ClienteValidator);
+    return await Cliente.create(dados);
   }
 
-  show({ request }) {
-    const id = request.param("id");
-    return Cliente.findOrFail(id);
+  async show({ request }) {
+    const id = await request.param("id");
+    return await Cliente.findOrFail(id);
   }
 
   async destroy({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const cliente = await Cliente.findOrFail(id);
     return cliente.delete();
   }
 
   async update({ request }) {
-    const id = request.param("id");
+    const id = await request.param("id");
     const cliente = await Cliente.findOrFail(id);
 
-    const dados = request.only([
-      "nome",
-      "cnpj",
-      "uf",
-      "cidade",
-      "logradouro",
-      "complemento",
-      "cep",
-      "telefone",
-      "email",
-    ]);
+    const dados = await request.validate(ClienteValidator);
 
-    cliente.merge(dados).save();
+    await cliente.merge(dados).save();
 
     return cliente;
   }
