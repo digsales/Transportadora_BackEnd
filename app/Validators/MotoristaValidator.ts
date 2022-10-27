@@ -7,8 +7,7 @@ export default class MotoristaValidator {
   public schema = schema.create({
     nome: schema.string([rules.maxLength(100)]),
     cpf: schema.string([
-      rules.minLength(11),
-      rules.maxLength(14),
+      rules.range(11, 14),
       rules.unique({ table: "motoristas", column: "cpf" }),
     ]),
     dataNascimento: schema.date.optional(),
@@ -20,7 +19,7 @@ export default class MotoristaValidator {
     cidade: schema.string.optional([rules.maxLength(100)]),
     logradouro: schema.string.optional([rules.maxLength(100)]),
     complemento: schema.string.optional([rules.maxLength(100)]),
-    cep: schema.string.optional([rules.minLength(8), rules.maxLength(8)]),
+    cep: schema.string.optional([rules.range(8, 9)]),
     telefone: schema.string([
       rules.range(11, 15),
       rules.unique({ table: "motoristas", column: "telefone" }),

@@ -13,7 +13,7 @@ export default class extends BaseSchema {
       table.string("cidade", 100);
       table.string("logradouro", 100);
       table.string("complemento", 100);
-      table.string("cep", 8);
+      table.string("cep", 9);
       table.string("telefone", 15).notNullable();
       table.string("email", 100).notNullable();
       /**
