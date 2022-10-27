@@ -4,7 +4,7 @@ import Reboque from "App/Models/Reboque";
 
 export default class ReboquesController {
   index() {
-    return Reboque.query();
+    return Reboque.query().preload("carga");
   }
 
   store({ request }) {

@@ -4,7 +4,7 @@ import Caminhao from "App/Models/Caminhao";
 
 export default class CaminhaosController {
   index() {
-    return Caminhao.query();
+    return Caminhao.query().preload("carga");
   }
 
   store({ request }) {

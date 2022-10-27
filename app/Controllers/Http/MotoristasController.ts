@@ -4,7 +4,7 @@ import Motorista from "App/Models/Motorista";
 
 export default class MotoristasController {
   index() {
-    return Motorista.query();
+    return Motorista.query().preload("caminhao");
   }
 
   store({ request }) {

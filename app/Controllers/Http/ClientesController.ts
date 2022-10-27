@@ -4,7 +4,7 @@ import Cliente from "App/Models/Cliente";
 
 export default class ClientesController {
   index() {
-    return Cliente.query();
+    return Cliente.query().preload("carga");
   }
 
   store({ request }) {
