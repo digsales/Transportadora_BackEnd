@@ -30,7 +30,7 @@ export default class ClientesController {
 
     const dados = await request.validate(ClienteValidator);
 
-    cliente.merge(dados).save();
+    await cliente.merge(dados).save();
 
     return cliente;
   }
