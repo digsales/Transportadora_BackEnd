@@ -8,14 +8,14 @@ export default class ClienteValidator {
     nome: schema.string([rules.maxLength(100)]),
     cnpj: schema.string([
       rules.minLength(14),
-      rules.maxLength(17),
+      rules.maxLength(14),
       rules.unique({ table: "clientes", column: "cnpj" }),
     ]),
     uf: schema.string([rules.minLength(2), rules.maxLength(2), rules.alpha()]),
     cidade: schema.string([rules.maxLength(100)]),
     logradouro: schema.string([rules.maxLength(100)]),
     complemento: schema.string.optional([rules.maxLength(100)]),
-    cep: schema.string.optional([rules.range(8, 9)]),
+    cep: schema.string.optional([rules.minLength(8), rules.maxLength(8)]),
     telefone: schema.string.optional([
       rules.range(11, 15),
       rules.unique({ table: "clientes", column: "telefone" }),
