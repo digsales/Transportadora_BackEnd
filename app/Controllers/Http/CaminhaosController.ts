@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Caminhao from "App/Models/Caminhao";
+import CaminhaoValidator from "App/Validators/CaminhaoValidator";
 
 export default class CaminhaosController {
   index() {
@@ -8,16 +9,7 @@ export default class CaminhaosController {
   }
 
   store({ request }) {
-    const dados = request.only([
-      "motoristaId",
-      "modelo",
-      "cabine",
-      "marca",
-      "placa",
-      "cor",
-      "tipoCaminhao",
-      "potencia",
-    ]);
+    const dados = request.validate(CaminhaoValidator);
     return Caminhao.create(dados);
   }
 
