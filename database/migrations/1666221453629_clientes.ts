@@ -7,7 +7,7 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments("id");
       table.string("nome", 100).notNullable();
-      table.string("cnpj", 14).notNullable();
+      table.string("cnpj", 18).notNullable();
       table.string("uf", 2).notNullable();
       table.string("cidade", 100).notNullable();
       table.string("logradouro", 100).notNullable();

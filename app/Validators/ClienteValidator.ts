@@ -7,8 +7,8 @@ export default class ClienteValidator {
   public schema = schema.create({
     nome: schema.string([rules.maxLength(100)]),
     cnpj: schema.string([
-      //rules.minLength(14),
-      //rules.maxLength(14),
+      rules.minLength(14),
+      rules.maxLength(18),
       rules.unique({ table: "clientes", column: "cnpj" }),
     ]),
     uf: schema.string([

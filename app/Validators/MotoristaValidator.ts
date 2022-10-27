@@ -8,7 +8,7 @@ export default class MotoristaValidator {
     nome: schema.string([rules.maxLength(100)]),
     cpf: schema.string([
       rules.minLength(11),
-      rules.maxLength(11),
+      rules.maxLength(14),
       rules.unique({ table: "motoristas", column: "cpf" }),
     ]),
     dataNascimento: schema.date.optional(),
