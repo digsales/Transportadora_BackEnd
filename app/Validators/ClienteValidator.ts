@@ -8,6 +8,9 @@ export default class ClienteValidator {
     nome: schema.string([rules.maxLength(100)]),
     cnpj: schema.string([
       rules.range(14, 18),
+      rules.alphaNum({
+        allow: ["space", "dash", "underscore"],
+      }),
       rules.unique({ table: "clientes", column: "cnpj" }),
     ]),
     uf: schema.string([
