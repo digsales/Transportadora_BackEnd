@@ -17,5 +17,6 @@ export default class CargaValidator {
     peso: schema.number(),
     tipoCarga: schema.string([rules.maxLength(100)]),
   });
+
   public messages: CustomMessages = {};
 }
