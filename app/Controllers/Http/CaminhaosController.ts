@@ -5,7 +5,7 @@ import CaminhaoValidator from "App/Validators/CaminhaoValidator";
 
 export default class CaminhaosController {
   async index() {
-    return await Caminhao.query().preload("carga");
+    return await Caminhao.query().preload("motorista").preload("carga");
   }
 
   async store({ request }) {

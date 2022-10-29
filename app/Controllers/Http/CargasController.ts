@@ -5,7 +5,10 @@ import CargaValidator from "App/Validators/CargaValidator";
 
 export default class CargasController {
   async index() {
-    return await Carga.query();
+    return await Carga.query()
+      .preload("caminhao")
+      .preload("reboque")
+      .preload("cliente");
   }
 
   async store({ request }) {
