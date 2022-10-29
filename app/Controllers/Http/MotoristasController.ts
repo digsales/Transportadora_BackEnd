@@ -5,7 +5,7 @@ import MotoristaValidator from "App/Validators/MotoristaValidator";
 
 export default class MotoristasController {
   async index() {
-    return await Motorista.query().preload("caminhao");
+    return await Motorista.query().preload("caminhoes");
   }
 
   async store({ request }) {

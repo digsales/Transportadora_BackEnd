@@ -43,5 +43,5 @@ export default class Motorista extends BaseModel {
   public updatedAt: DateTime;
 
   @hasMany(() => Caminhao)
-  public caminhao: HasMany<typeof Caminhao>;
+  public caminhoes: HasMany<typeof Caminhao>;
 }

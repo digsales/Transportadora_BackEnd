@@ -5,7 +5,7 @@ import ReboqueValidator from "App/Validators/ReboqueValidator";
 
 export default class ReboquesController {
   async index() {
-    return await Reboque.query().preload("carga");
+    return await Reboque.query().preload("cargas");
   }
 
   async store({ request }) {

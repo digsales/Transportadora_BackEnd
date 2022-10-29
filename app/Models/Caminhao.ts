@@ -48,5 +48,5 @@ export default class Caminhao extends BaseModel {
   public motorista: BelongsTo<typeof Motorista>;
 
   @hasMany(() => Carga)
-  public carga: HasMany<typeof Carga>;
+  public cargas: HasMany<typeof Carga>;
 }

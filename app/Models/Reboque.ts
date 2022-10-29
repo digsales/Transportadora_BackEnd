@@ -16,5 +16,5 @@ export default class Reboque extends BaseModel {
   public updatedAt: DateTime;
 
   @hasMany(() => Carga)
-  public carga: HasMany<typeof Carga>;
+  public cargas: HasMany<typeof Carga>;
 }

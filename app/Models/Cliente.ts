@@ -40,5 +40,5 @@ export default class Cliente extends BaseModel {
   public updatedAt: DateTime;
 
   @hasMany(() => Carga)
-  public carga: HasMany<typeof Carga>;
+  public cargas: HasMany<typeof Carga>;
 }
