@@ -15,6 +15,7 @@ export default class CaminhaoValidator {
       rules.minLength(7),
       rules.maxLength(7),
       rules.alphaNum(),
+      rules.unique({ table: "caminhaos", column: "placa" }),
     ]),
     cor: schema.string.optional([rules.maxLength(100)]),
     tipoCaminhao: schema.string([rules.maxLength(100)]),
