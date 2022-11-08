@@ -21,7 +21,8 @@ export default class ReboquesController {
   async destroy({ request }) {
     const id = await request.param("id");
     const reboque = await Reboque.findOrFail(id);
-    return reboque.delete();
+    reboque.delete();
+    return "Deletado com sucesso!";
   }
 
   async update({ request }) {

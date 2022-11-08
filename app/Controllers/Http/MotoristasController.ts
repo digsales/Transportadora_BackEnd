@@ -21,7 +21,8 @@ export default class MotoristasController {
   async destroy({ request }) {
     const id = await request.param("id");
     const motorista = await Motorista.findOrFail(id);
-    return motorista.delete();
+    motorista.delete();
+    return "Deletado com sucesso!";
   }
 
   async update({ request }) {
