@@ -250,3 +250,7 @@ export default class AlunoValidator {
 ### Configurando Autentificador
     
     node ace configure @adonisjs/auth
+    
+### Instalando phc-argon2
+
+    npm i phc-argon2
