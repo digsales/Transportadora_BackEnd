@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Caminhao from "App/Models/Caminhao";
+import CaminhaoUpdateValidator from "App/Validators/CaminhaoUpdateValidator";
 import CaminhaoValidator from "App/Validators/CaminhaoValidator";
 
 export default class CaminhaosController {
@@ -29,7 +30,7 @@ export default class CaminhaosController {
     const id = await request.param("id");
     const caminhao = await Caminhao.findOrFail(id);
 
-    const dados = await request.validate(CaminhaoValidator);
+    const dados = await request.validate(CaminhaoUpdateValidator);
 
     caminhao.merge(dados).save();
 

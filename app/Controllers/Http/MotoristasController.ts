@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Motorista from "App/Models/Motorista";
+import MotoristaUpdateValidator from "App/Validators/MotoristaUpdateValidator";
 import MotoristaValidator from "App/Validators/MotoristaValidator";
 
 export default class MotoristasController {
@@ -29,7 +30,7 @@ export default class MotoristasController {
     const id = await request.param("id");
     const motorista = await Motorista.findOrFail(id);
 
-    const dados = await request.validate(MotoristaValidator);
+    const dados = await request.validate(MotoristaUpdateValidator);
 
     motorista.merge(dados).save();
 

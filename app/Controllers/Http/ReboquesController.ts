@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Reboque from "App/Models/Reboque";
+import ReboqueUpdateValidator from "App/Validators/ReboqueUpdateValidator";
 import ReboqueValidator from "App/Validators/ReboqueValidator";
 
 export default class ReboquesController {
@@ -29,7 +30,7 @@ export default class ReboquesController {
     const id = await request.param("id");
     const reboque = await Reboque.findOrFail(id);
 
-    const dados = await request.validate(ReboqueValidator);
+    const dados = await request.validate(ReboqueUpdateValidator);
 
     reboque.merge(dados).save();
 

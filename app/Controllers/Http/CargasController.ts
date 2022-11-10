@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Carga from "App/Models/Carga";
+import CargaUpdateValidator from "App/Validators/CargaUpdateValidator";
 import CargaValidator from "App/Validators/CargaValidator";
 
 export default class CargasController {
@@ -32,7 +33,7 @@ export default class CargasController {
     const id = await request.param("id");
     const carga = await Carga.findOrFail(id);
 
-    const dados = await request.validate(CargaValidator);
+    const dados = await request.validate(CargaUpdateValidator);
 
     carga.merge(dados).save();
 
