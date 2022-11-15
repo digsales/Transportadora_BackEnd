@@ -23,7 +23,7 @@ export default class CaminhaosController {
     const id = await request.param("id");
     const caminhao = await Caminhao.findOrFail(id);
     caminhao.delete();
-    return "Deletado com sucesso!";
+    return "Caminhão deletado com sucesso!";
   }
 
   async update({ request }) {

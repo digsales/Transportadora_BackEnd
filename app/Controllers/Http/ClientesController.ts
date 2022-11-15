@@ -23,7 +23,7 @@ export default class ClientesController {
     const id = await request.param("id");
     const cliente = await Cliente.findOrFail(id);
     cliente.delete();
-    return "Deletado com sucesso!";
+    return "Cliente deletado com sucesso!";
   }
 
   async update({ request }) {

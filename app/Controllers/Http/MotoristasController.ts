@@ -23,7 +23,7 @@ export default class MotoristasController {
     const id = await request.param("id");
     const motorista = await Motorista.findOrFail(id);
     motorista.delete();
-    return "Deletado com sucesso!";
+    return "Motorista deletado com sucesso!";
   }
 
   async update({ request }) {

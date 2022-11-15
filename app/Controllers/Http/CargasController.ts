@@ -26,7 +26,7 @@ export default class CargasController {
     const id = await request.param("id");
     const carga = await Carga.findOrFail(id);
     carga.delete();
-    return "Deletado com sucesso!";
+    return "Carga deletada com sucesso!";
   }
 
   async update({ request }) {
