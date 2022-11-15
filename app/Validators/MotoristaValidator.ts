@@ -7,7 +7,8 @@ export default class MotoristaValidator {
   public schema = schema.create({
     nome: schema.string([rules.maxLength(100)]),
     cpf: schema.string([
-      rules.range(11, 14),
+      rules.minLength(14),
+      rules.maxLength(14),
       rules.regex(/^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/),
       rules.unique({ table: "motoristas", column: "cpf" }),
     ]),
@@ -20,9 +21,9 @@ export default class MotoristaValidator {
     cidade: schema.string.optional([rules.maxLength(100)]),
     logradouro: schema.string.optional([rules.maxLength(100)]),
     complemento: schema.string.optional([rules.maxLength(100)]),
-    cep: schema.string.optional([rules.range(8, 9)]),
+    cep: schema.string.optional([rules.maxLength(9)]),
     telefone: schema.string([
-      rules.range(11, 15),
+      rules.maxLength(15),
       rules.mobile({ locale: ["pt-BR"] }),
       rules.unique({ table: "motoristas", column: "telefone" }),
     ]),
