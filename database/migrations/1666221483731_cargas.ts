@@ -11,19 +11,22 @@ export default class extends BaseSchema {
         .unsigned()
         .references("id")
         .inTable("caminhaos")
-        .notNullable();
+        .notNullable()
+        .onDelete("CASCADE");
       table
         .integer("reboque_id")
         .unsigned()
         .references("id")
         .inTable("reboques")
-        .notNullable();
+        .notNullable()
+        .onDelete("CASCADE");
       table
         .integer("cliente_id")
         .unsigned()
         .references("id")
         .inTable("clientes")
-        .notNullable();
+        .notNullable()
+        .onDelete("CASCADE");
       table.decimal("peso").notNullable();
       table.string("tipo_carga", 100).notNullable();
 

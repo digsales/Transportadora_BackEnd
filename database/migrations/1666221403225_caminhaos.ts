@@ -10,7 +10,8 @@ export default class extends BaseSchema {
         .integer("motorista_id")
         .unsigned()
         .references("id")
-        .inTable("motoristas");
+        .inTable("motoristas")
+        .onDelete("CASCADE");
       table.string("modelo", 100).notNullable();
       table.string("cabine", 100);
       table.string("marca", 100).notNullable();
